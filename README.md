@@ -1,8 +1,8 @@
 This package contains the code that implements the following paper,
 
-Renjie Chen and Ofir Weber.
-GPU-Accelerated Locally Injective Shape Deformation.
-ACM Transactions on Graphics, 36(6) (SIGGRAPH Asia 2017)
+Dongbo Shi and Renjie Chen.
+Harmonic Shape Interpolation on Multiply-connected Planar Domains
+(SGP 2022)
 
 # What does the code contain.
 The app is built with a combination of MATLAB (for core computation), C++ code (for the UI) and mex/CUDA code (for GPU accelerated optimization).
