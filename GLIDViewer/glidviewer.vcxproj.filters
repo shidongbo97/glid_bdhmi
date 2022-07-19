@@ -226,6 +226,7 @@
     <ClInclude Include="Akvf\simplesparsematrix.h">
       <Filter>AKVF</Filter>
     </ClInclude>
+    <ClInclude Include="BDHMInterp.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="LIM">

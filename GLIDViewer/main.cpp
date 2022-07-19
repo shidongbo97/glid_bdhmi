@@ -27,6 +27,7 @@
 #include "VAOMesh.h"
 
 #include "matlabDeformer.h"
+#include "BDHMInterp.h"
 
 
 using namespace std;
@@ -34,6 +35,7 @@ using namespace std;
 string textureFile;
 
 std::shared_ptr<Deformer> deformer;
+BDHMInterp* bdhmInterp;
 
 GLProgram MyMesh::prog, MyMesh::pickProg, MyMesh::pointSetProg;
 GLTexture MyMesh::colormapTex;
@@ -104,6 +106,11 @@ void createDeformer()
     default:
         break;
     }
+}
+
+void createBDHMInterp()
+{
+	bdhmInterp = new BDHMInterp(M);
 }
 
 void updatePosConstraints(int newConstraint)
@@ -189,6 +196,8 @@ void loadData(std::string dataset)
     createDeformer();
 
     loadP2PConstraints();
+
+	createBDHMInterp();
 }
 
 /////////////////////////////////////////////////////////////////////////
