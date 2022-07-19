@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E8C591C6-405C-464D-9656-A165D9BB8553}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>glidviewer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\3rdparty\ffmpeg\include;..\3rdparty\include;z:\R2015b\extern\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../3rdparty/lib/x86;z:\R2015b\extern\lib\win32\microsoft\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>libeng.dll;libmx.dll</DelayLoadDLLs>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;IGL_STATIC_LIBRARY;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\3rdparty\ffmpeg\include;..\3rdparty\include\SuiteSparse;..\3rdparty\include;d:\dev\mkl\include;z:\R2020b\extern\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../3rdparty/lib/x64;z:\R2020b\extern\lib\win64\microsoft\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>libeng.dll;libmx.dll</DelayLoadDLLs>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>mymkl.lib;suitesparse.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)..
+copy $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)..</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\3rdparty\ffmpeg\include;..\3rdparty\include;z:\R2015b\extern\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../3rdparty/lib/x86;z:\R2015b\extern\lib\win32\microsoft\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>libeng.dll;libmx.dll</DelayLoadDLLs>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;IGL_STATIC_LIBRARY;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\3rdparty\ffmpeg\include;..\3rdparty\include\SuiteSparse;..\3rdparty\include;d:\dev\mkl\include;z:\R2020b\extern\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../3rdparty/lib/x64;z:\R2020b\extern\lib\win64\microsoft\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>libeng.dll;libmx.dll</DelayLoadDLLs>
+      <AdditionalDependencies>mymkl.lib;suitesparse.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)..
+copy "$(OutDir)$(TargetName)$(TargetExt)" "$(SolutionDir).."</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Akvf\logspiral.cpp" />
+    <ClCompile Include="Akvf\model2d.cpp" />
+    <ClCompile Include="Akvf\simplesparsematrix.cpp" />
+    <ClCompile Include="GLProgram.cpp" />
+    <ClCompile Include="gl_core_3_3.c" />
+    <ClCompile Include="igl\boundary_faces.cpp" />
+    <ClCompile Include="igl\boundary_facets.cpp" />
+    <ClCompile Include="igl\colon.cpp" />
+    <ClCompile Include="igl\cotangent.cpp" />
+    <ClCompile Include="igl\cotmatrix.cpp" />
+    <ClCompile Include="igl\cotmatrix_entries.cpp" />
+    <ClCompile Include="igl\cross.cpp" />
+    <ClCompile Include="igl\dihedral_angles.cpp" />
+    <ClCompile Include="igl\doublearea.cpp" />
+    <ClCompile Include="igl\edge_lengths.cpp" />
+    <ClCompile Include="igl\face_areas.cpp" />
+    <ClCompile Include="igl\face_occurences.cpp" />
+    <ClCompile Include="igl\face_occurrences.cpp" />
+    <ClCompile Include="igl\list_to_matrix.cpp" />
+    <ClCompile Include="igl\matrix_to_list.cpp" />
+    <ClCompile Include="igl\max_size.cpp" />
+    <ClCompile Include="igl\min_size.cpp" />
+    <ClCompile Include="igl\reorder.cpp" />
+    <ClCompile Include="igl\sort.cpp" />
+    <ClCompile Include="igl\squared_edge_lengths.cpp" />
+    <ClCompile Include="igl\volume.cpp" />
+    <ClCompile Include="LIM\GreenStrain_LIMSolver2D.cpp" />
+    <ClCompile Include="LIM\LGARAP_LIMSolver2D.cpp" />
+    <ClCompile Include="LIM\LIMSolver.cpp" />
+    <ClCompile Include="LIM\LIMSolver2D.cpp" />
+    <ClCompile Include="LIM\LSConformal_LIMSolver2D.cpp" />
+    <ClCompile Include="LIM\NMSolver.cpp" />
+    <ClCompile Include="LIM\TriangleMesh.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="matlab_utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Akvf\logspiral.h" />
+    <ClInclude Include="Akvf\model2d.h" />
+    <ClInclude Include="Akvf\simplesparsematrix.h" />
+    <ClInclude Include="deformer.h" />
+    <ClInclude Include="glarray.h" />
+    <ClInclude Include="GLProgram.h" />
+    <ClInclude Include="gl_core_3_3.h" />
+    <ClInclude Include="igl\boundary_faces.h" />
+    <ClInclude Include="igl\boundary_facets.h" />
+    <ClInclude Include="igl\colon.h" />
+    <ClInclude Include="igl\cotangent.h" />
+    <ClInclude Include="igl\cotmatrix.h" />
+    <ClInclude Include="igl\cotmatrix_entries.h" />
+    <ClInclude Include="igl\cross.h" />
+    <ClInclude Include="igl\dihedral_angles.h" />
+    <ClInclude Include="igl\doublearea.h" />
+    <ClInclude Include="igl\edge_lengths.h" />
+    <ClInclude Include="igl\face_areas.h" />
+    <ClInclude Include="igl\face_occurences.h" />
+    <ClInclude Include="igl\face_occurrences.h" />
+    <ClInclude Include="igl\igl_inline.h" />
+    <ClInclude Include="igl\IndexComparison.h" />
+    <ClInclude Include="igl\list_to_matrix.h" />
+    <ClInclude Include="igl\matrix_to_list.h" />
+    <ClInclude Include="igl\max_size.h" />
+    <ClInclude Include="igl\min_size.h" />
+    <ClInclude Include="igl\parallel_for.h" />
+    <ClInclude Include="igl\reorder.h" />
+    <ClInclude Include="igl\sort.h" />
+    <ClInclude Include="igl\SortableRow.h" />
+    <ClInclude Include="igl\squared_edge_lengths.h" />
+    <ClInclude Include="igl\verbose.h" />
+    <ClInclude Include="igl\volume.h" />
+    <ClInclude Include="LIM\DeformableMesh.h" />
+    <ClInclude Include="LIM\GreenStrain_LIMSolver2D.h" />
+    <ClInclude Include="LIM\LGARAP_LIMSolver2D.h" />
+    <ClInclude Include="LIM\LIMdeform.h" />
+    <ClInclude Include="LIM\LIMSolver.h" />
+    <ClInclude Include="LIM\LIMSolver2D.h" />
+    <ClInclude Include="LIM\LIMSolverInterface.h" />
+    <ClInclude Include="LIM\LSConformal_LIMSolver2D.h" />
+    <ClInclude Include="LIM\NMSolver.h" />
+    <ClInclude Include="LIM\TriangleMesh.h" />
+    <ClInclude Include="matlabDeformer.h" />
+    <ClInclude Include="matlab_utils.h" />
+    <ClInclude Include="MyImage.h" />
+    <ClInclude Include="VAOImage.h" />
+    <ClInclude Include="vaomesh.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

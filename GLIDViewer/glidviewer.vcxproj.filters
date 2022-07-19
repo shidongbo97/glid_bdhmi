@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="matlab_utils.cpp" />
+    <ClCompile Include="GLProgram.cpp" />
+    <ClCompile Include="gl_core_3_3.c" />
+    <ClCompile Include="igl\boundary_facets.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\colon.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\cotmatrix.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\cotmatrix_entries.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\dihedral_angles.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\doublearea.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\edge_lengths.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\face_areas.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\face_occurrences.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\list_to_matrix.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\matrix_to_list.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\max_size.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\min_size.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\reorder.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\sort.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\squared_edge_lengths.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\volume.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\cross.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\boundary_faces.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\cotangent.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="igl\face_occurences.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\LGARAP_LIMSolver2D.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\LIMSolver2D.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\NMSolver.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\TriangleMesh.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\LSConformal_LIMSolver2D.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\LIMSolver.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="LIM\GreenStrain_LIMSolver2D.cpp">
+      <Filter>LIM</Filter>
+    </ClCompile>
+    <ClCompile Include="Akvf\logspiral.cpp">
+      <Filter>AKVF</Filter>
+    </ClCompile>
+    <ClCompile Include="Akvf\model2d.cpp">
+      <Filter>AKVF</Filter>
+    </ClCompile>
+    <ClCompile Include="Akvf\simplesparsematrix.cpp">
+      <Filter>AKVF</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="matlab_utils.h" />
+    <ClInclude Include="MyImage.h" />
+    <ClInclude Include="VAOImage.h" />
+    <ClInclude Include="vaomesh.h" />
+    <ClInclude Include="glarray.h" />
+    <ClInclude Include="GLProgram.h" />
+    <ClInclude Include="matlabDeformer.h" />
+    <ClInclude Include="deformer.h" />
+    <ClInclude Include="gl_core_3_3.h" />
+    <ClInclude Include="igl\cotmatrix.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\cotmatrix_entries.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\doublearea.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\edge_lengths.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\face_areas.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\face_occurrences.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\matrix_to_list.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\sort.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\squared_edge_lengths.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\volume.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\boundary_facets.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\colon.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\cross.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\dihedral_angles.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\igl_inline.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\IndexComparison.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\list_to_matrix.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\max_size.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\min_size.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\parallel_for.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\reorder.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\SortableRow.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\boundary_faces.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\verbose.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\cotangent.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="igl\face_occurences.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\NMSolver.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LIMdeform.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\DeformableMesh.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\TriangleMesh.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LSConformal_LIMSolver2D.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LIMSolverInterface.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LIMSolver2D.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LIMSolver.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\LGARAP_LIMSolver2D.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="LIM\GreenStrain_LIMSolver2D.h">
+      <Filter>LIM</Filter>
+    </ClInclude>
+    <ClInclude Include="Akvf\logspiral.h">
+      <Filter>AKVF</Filter>
+    </ClInclude>
+    <ClInclude Include="Akvf\model2d.h">
+      <Filter>AKVF</Filter>
+    </ClInclude>
+    <ClInclude Include="Akvf\simplesparsematrix.h">
+      <Filter>AKVF</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="LIM">
+      <UniqueIdentifier>{0a2807ce-014b-4d7d-9c96-dcb41da98e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AKVF">
+      <UniqueIdentifier>{86155e62-fe25-4b72-8f87-930959702650}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
