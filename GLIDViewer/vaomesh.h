@@ -800,7 +800,8 @@ struct GLMesh
             if (i == 1) continue; // no wire draw
             edgeWidth = (i==1)*2;
 
-            if (i==2)  constrainVertices = constrainVtx0;
+            //if (i==2)  constrainVertices = constrainVtx0;
+			if (i == 2) continue; // no p2p draw
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glEnable(GL_DEPTH_TEST);

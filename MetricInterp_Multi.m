@@ -1,8 +1,8 @@
-function [phipsy] = MetricInterp_Multi(v,C2,D2,phipsy_0,MG_k,fillDistanceSegments,E2,L2,nextSampleInSameCage,numHessianSamplesRate)
+function [phipsy] = MetricInterp_Multi(v,C2,D2,phipsy_0,MG_k,fillDistanceSegments,E2,L2,nextSampleInSameCage,numHessianSamplesRate,isGPUcompute)
 
 niter = 100;
 
-isGPUcompute = true;
+% isGPUcompute = true;
 
 if isGPUcompute
      vv = cat(1, v{:});

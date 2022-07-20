@@ -2,57 +2,62 @@
 %%
 assert( all(signedAreas(X, T)>0), 'source triangulation not in correct order!');
 
-%%
-nBEMSample = 20;
-BEMSampleOffset = cage_offset; 
+%% PreCompute
+if exist('needPreCompute', 'var')~=1, needPreCompute = false; end
 
-if exist('nVirtual', 'var')~=1, nVirtual = 1; end
+if needPreCompute
+    nBEMSample = 20;
+    BEMSampleOffset = cage_offset; 
 
-nVirtual = 1;
-mxsub = @(x) subdivPolyMat(x, nVirtual*size(x,1));
+    if exist('nVirtual', 'var')~=1, nVirtual = 1; end
 
-numRealVirtualVertex = size(mxsub, 1);
+    nVirtual = 1;
+    mxsub = @(x) subdivPolyMat(x, nVirtual*size(x,1));
 
-nx = @(x) size(x,1);
-S = @(x) subdivPolyMat(mxsub(x)*x,ceil(nBEMSample*nx(x)));
-w = @(x) S(x)*mxsub(x)*polygonOffset(x, BEMSampleOffset, false);
-W = reshape(cellfun(w,v,'UniformOutput',false),[],1);
-W = cell2mat(W);
+    numRealVirtualVertex = size(mxsub, 1);
 
-%% init, precomputations 
-C = cauchyCoordinates(v, X,holeCenters);
-D = derivativesOfCauchyCoord(v, X,holeCenters);
+    nx = @(x) size(x,1);
+    S = @(x) subdivPolyMat(mxsub(x)*x,ceil(nBEMSample*nx(x)));
+    w = @(x) S(x)*mxsub(x)*polygonOffset(x, BEMSampleOffset, false);
+    W = reshape(cellfun(w,v,'UniformOutput',false),[],1);
+    W = cell2mat(W);
 
-%% compute cauchy coordinates and its derivatives for samples
-fSampleOnPolygon = @(n, p) subdivPolyMat(p, n)*p;
+    %% init, precomputations 
+    C = cauchyCoordinates(v, X,holeCenters);
+    D = derivativesOfCauchyCoord(v, X,holeCenters);
 
-fPerimeter = @(x) sum( abs(x-x([2:end 1])) );
-sumCagePerimeter = sum( cellfun(fPerimeter, v) );
+    %% compute cauchy coordinates and its derivatives for samples
+    fSampleOnPolygon = @(n, p) subdivPolyMat(p, n)*p;
 
-energySamples = cellfun(@(h) fSampleOnPolygon(ceil(fPerimeter(h)/sumCagePerimeter*numEnergySamples), h), [cage holes], 'UniformOutput', false);
-nSamplePerCage = cellfun(@numel, energySamples);
-energySamples = cat(1, energySamples{:});
+    fPerimeter = @(x) sum( abs(x-x([2:end 1])) );
+    sumCagePerimeter = sum( cellfun(fPerimeter, v) );
 
-nextSampleInSameCage = [2:sum(nSamplePerCage) 1];   % next sample on the same cage, for Lipschitz constants and correct sample spacing computation
-nextSampleInSameCage( cumsum(nSamplePerCage) ) = 1+cumsum( [0 nSamplePerCage(1:end-1)] );
+    energySamples = cellfun(@(h) fSampleOnPolygon(ceil(fPerimeter(h)/sumCagePerimeter*numEnergySamples), h), [cage holes], 'UniformOutput', false);
+    nSamplePerCage = cellfun(@numel, energySamples);
+    energySamples = cat(1, energySamples{:});
 
-C2 = cauchyCoordinates(v, energySamples, holeCenters);
-[D2, E2] = derivativesOfCauchyCoord(v, energySamples, holeCenters);
-fillDistanceSegments = abs(energySamples-energySamples(nextSampleInSameCage))/2;
+    nextSampleInSameCage = [2:sum(nSamplePerCage) 1];   % next sample on the same cage, for Lipschitz constants and correct sample spacing computation
+    nextSampleInSameCage( cumsum(nSamplePerCage) ) = 1+cumsum( [0 nSamplePerCage(1:end-1)] );
 
-catv = myGPUArray( cat(1, v{:}) );
-L2 = myGPUArray(zeros(numel(energySamples), numel(catv)+numel(holeCenters)));
-for i=1:numel(catv)
-    L2(:, i) = distancePointToSegment(catv(i), energySamples, energySamples(nextSampleInSameCage)).^-2/2/pi;
-end
+    C2 = cauchyCoordinates(v, energySamples, holeCenters);
+    [D2, E2] = derivativesOfCauchyCoord(v, energySamples, holeCenters);
+    fillDistanceSegments = abs(energySamples-energySamples(nextSampleInSameCage))/2;
 
-%% Lipschitz for log basis in multiconeccted case
-for i=1:numel(holeCenters)
-    L2(:, end-numel(holeCenters)+i) = distancePointToSegment(holeCenters(i), energySamples, energySamples(nextSampleInSameCage)).^-3*2;
+    catv = myGPUArray( cat(1, v{:}) );
+    L2 = myGPUArray(zeros(numel(energySamples), numel(catv)+numel(holeCenters)));
+    for i=1:numel(catv)
+        L2(:, i) = distancePointToSegment(catv(i), energySamples, energySamples(nextSampleInSameCage)).^-2/2/pi;
+    end
+
+    %% Lipschitz for log basis in multiconeccted case
+    for i=1:numel(holeCenters)
+        L2(:, end-numel(holeCenters)+i) = distancePointToSegment(holeCenters(i), energySamples, energySamples(nextSampleInSameCage)).^-3*2;
+    end
 end
 
 C0 = C2;
 D0 = D2;
+E2 = SoDerivativeOfCauchyCoordinatesAtEnergySamples;
 % precomputed data
 invC0 = pinv( [real(C0) -imag(C0)] );
 invC0 = complex(invC0(1:size(invC0,1)/2,:), invC0(size(invC0,1)/2+1:size(invC0,1),:));
@@ -207,9 +212,9 @@ if isempty(interpAnchID), warning('anchors for interpolation not set!'); end
 % anchX = fComposeHarmonicMap( C(interpAnchID, :)*phipsy(:, keyframes(1)+(0:1)) );
 anchSrc = fComposeHarmonicMap( C(interpAnchID, :)*phipsy(:, reshape([keyframes; keyframes+1], [], 1)) );
 
-fInterpPhiPsy = @(wt)MetricInterp_Multi(v,C,D2,PhiPsyKF(:,1:2),fInterpM(wt),fillDistanceSegments,E2,L2,nextSampleInSameCage,numHessianSamplesRate);
+fInterpPhiPsy = @(wt)MetricInterp_Multi(v,C,D2,PhiPsyKF(:,1:2),fInterpM(wt),fillDistanceSegments,E2,L2,nextSampleInSameCage,bdhmiHessianSampleRate,bdhmiUseGPU);
 
-fInterpPhiPsy3 = @(PhiPsyIterMulti,wt)MetricInterp_Multi(v,C,D2,PhiPsyIterMulti,fInterpM(wt),fillDistanceSegments,E2,L2,nextSampleInSameCage,numHessianSamplesRate);
+fInterpPhiPsy3 = @(PhiPsyIterMulti,wt)MetricInterp_Multi(v,C,D2,PhiPsyIterMulti,fInterpM(wt),fillDistanceSegments,E2,L2,nextSampleInSameCage,numHessibdhmiHessianSampleRateanSamplesRate,bdhmiUseGPU);
 
 fBdhInterpX2 = @(wt) fComposeHarmonicMap(C*fInterpPhiPsy(wt));
 
