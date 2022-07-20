@@ -35,6 +35,12 @@ Precompiled binary for the UI and mex/CUDA are provided with the package.
     * Reset Shape, reset the shape to its original state (identity mapping)
     * Pause, paurse the iteration
     * Clear P2P: remove all the p2p constraints.
+6. BDHMI Interpolation widget
+    * bdhmiHessianSample: #samples for hessian matrix in BDHMI
+    * bdhmiUseGPU: use cuHarmonicInterp.mew64(GPU code) or matlab code(CPU) for BDHMI
+    * InterpAlg: metric(BDHMI),GE(Geodesic elastic energy),ARAP,FFMP
+    * video fps: set #frame per second for intermediate results to video
+    * Generate: generate #numFrame intermediate frames of input keyframes, and one #videofps .avi video
 
 # How to compile the binaries
 The following libraries are needed to compile the code

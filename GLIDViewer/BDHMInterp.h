@@ -89,7 +89,7 @@ struct BDHMInterp
 
 		TwAddVarRW(bar, "numFrame", TW_TYPE_INT32, &numBDHInterpFrames, " group=Interpolator ");
 
-		TwAddVarCB(bar, "video fps%", TW_TYPE_INT32,
+		TwAddVarCB(bar, "video fps", TW_TYPE_INT32,
 			[](const void* v, void* d) { scalar2matlab("video_fps", *(const int*)(v)); },
 			[](void* v, void*) { *(int*)(v) = matlab2scalar("video_fps"); },
 			nullptr, " group=Interpolator help='#frames per second for video' ");
